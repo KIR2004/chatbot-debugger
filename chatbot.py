@@ -41,5 +41,9 @@ def debug():
     solution = get_solution(code, error_message)
     return jsonify({"solution": solution})
 
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Get the port dynamically
+    app.run(host="0.0.0.0", port=port, debug=True)
+
